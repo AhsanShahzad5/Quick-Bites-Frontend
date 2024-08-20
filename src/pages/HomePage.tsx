@@ -1,5 +1,5 @@
 import colors from '@/styles/theme'
-import React from 'react'
+// import React from 'react'
 import landingPage from '@/assets/landing.png'
 import appDownloadImage from '@/assets/appDownload.png'
 const HomePage = () => {
