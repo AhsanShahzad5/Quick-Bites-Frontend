@@ -1,13 +1,19 @@
-import { useCreateMyRestaurant } from "@/api/MyRestaurantApi"
+import { useCreateMyRestaurant, useGetMyRestaurant, useUpdateMyRestaurant } from "@/api/MyRestaurantApi"
 import ManageRestaurantForm from "@/forms/manage-restaurant-form/ManageRestaurantForm"
 
 function ManageRestaurantPage() {
-  const { createRestaurant, isLoading } = useCreateMyRestaurant();
+  const { createRestaurant, isLoading:isCreateLoading } = useCreateMyRestaurant();
+  const { restaurant } = useGetMyRestaurant();
+  const {updateRestaurant , isLoading:isUpdateLoading} = useUpdateMyRestaurant();
+  
+  //return opposite of variable 
+  const isEditing = !!restaurant;
 
   return (
     <ManageRestaurantForm
-      onSave={createRestaurant}
-      isLoading={isLoading}
+      restaurant={restaurant}
+      onSave={isEditing? updateRestaurant: createRestaurant}
+      isLoading={isCreateLoading || isUpdateLoading}
     />
   )
 }
