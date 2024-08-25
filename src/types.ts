@@ -37,7 +37,7 @@ export type RestaurantSearchResponse = {
     };
 };
 
-
+//could be onlyy one of these types
 export type OrderStatus =
   | "placed"
   | "paid"
