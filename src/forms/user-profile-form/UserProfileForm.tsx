@@ -7,6 +7,7 @@ import LoadingButton from '@/components/LoadingButton';
 import { Button } from '@/components/ui/button';
 import { User } from '@/types';
 import { useEffect } from 'react';
+import colors from '@/styles/theme';
 
 
 const formSchema = z.object({
@@ -122,7 +123,7 @@ const UserProfileForm = (
                 {isLoading ? (
                     <LoadingButton />
                 ) : (
-                    <Button type="submit" className="bg-orange-500">
+                    <Button type="submit" className={`${colors.mainBgColor}`}>
                         {buttonText}
                     </Button>
                 )}

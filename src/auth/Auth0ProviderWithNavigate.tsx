@@ -1,5 +1,5 @@
 //import { useCreateMyUser } from '@/api/MyUserApi';
-import { Auth0Provider , User } from '@auth0/auth0-react';
+import { AppState, Auth0Provider } from '@auth0/auth0-react';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
@@ -20,10 +20,10 @@ const Auth0ProviderWithNavigate = ({ children }: Props) => {
     }
 
     //runs when user signs in
-    const onRedirectCallback = (user?:User)=>{
-        console.log("user loged in " , user);
-        navigate("/auth-callback")
-    }
+    
+  const onRedirectCallback = (appState?: AppState) => {
+    navigate(appState?.returnTo || "/auth-callback");
+  };
     return (
         <Auth0Provider
             domain={domain}

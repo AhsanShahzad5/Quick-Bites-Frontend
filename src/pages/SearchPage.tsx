@@ -9,6 +9,7 @@ import SearchResultInfo from "@/components/SearchResultInfo";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import SortOptionDropdown from "@/components/SortOptionDropdown";
+import LoadingComponent from "@/components/LoadingComponent";
 
 export type SearchState = {
   searchQuery: string;
@@ -71,7 +72,7 @@ const SearchPage = () => {
   };
 
   if (isLoading) {
-    return <span>Loading ...</span>;
+    return <LoadingComponent/>
   }
 
   if (!results?.data || !city) {
